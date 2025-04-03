@@ -1,4 +1,4 @@
-const db =  require('../../bd/mysql')
+const db =  require('../../BD/mysql.js')
 
 const config = require('../../config')
 
@@ -8,16 +8,17 @@ function todos (){
     return db.todos(TABLA)
 }
 
-function uno(){
-
+function uno(id){
+    return db.uno(TABLA, id)
 }
 
-function agregar (data){
-    return db.agregar(TABLA,data)
+async function agregar(body) {
+    return await db.agregar(TABLA, body);
 }
 
-function eliminar (){
 
+function eliminar (body){
+    return db.eliminar(TABLA,body)
 }
 
 module.exports={
